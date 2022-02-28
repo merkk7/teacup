@@ -1,5 +1,7 @@
 from distutils import command
 import tkinter as tk
+from tkinter import *
+
 
 
 class SampleApp(tk.Tk):
@@ -20,9 +22,14 @@ class SampleApp(tk.Tk):
         self._frame.pack()
 
 
+
+
+
 class StartPage(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
+        
+        
 
         start_label = tk.Label(self, text="Welcome",font=("Comic Sans MS", int(48.0)))
         page_1_button = tk.Button(self, text="Войти",font =("Comic Sans MS", int(24.0)), foreground="white", bg = "blue", bd= 4,
@@ -38,7 +45,9 @@ class PageOne(tk.Frame):
         page_1_label = tk.Label(self, text="Main menu:",font=("Comic Sans MS", int(48.0)))
         start_button = tk.Button(self, text="Справочник",font =("Comic Sans MS", int(12.0)), foreground="white", bg = "blue", bd= 4,width =15,
                                  command=lambda: master.switch_frame(PageTwo))
-        entoru= tk.Button(self, text='Перевод слов',font =("Comic Sans MS", int(12.0)), foreground="white", bg = "blue", bd= 4,width =15)
+        entoru= tk.Button(self, text="Тест",font =("Comic Sans MS", int(12.0)), foreground="white", bg = "blue", bd= 4,width =15,
+                                 command=lambda: master.switch_frame(PageEight))
+        
         page_1_label.pack(side="top", fill="x", pady=10)
         start_button.pack()
         entoru.pack()
@@ -78,9 +87,9 @@ class PageFour(tk.Frame):
     def __init__(self,master):
         tk.Frame.__init__(self, master) 
 
-        page_4_label = tk.Label(self, text="Present Perfect Continuous",font=("Comic Sans MS", int(42.0)))
+        page_4_label = tk.Label(self, text="Present Perfect",font=("Comic Sans MS", int(42.0)))
         start_button = tk.Button(self, text="Далее",font =("Ariel", int(12.0)),bg = "red",foreground="white",bd= 4,width = 8,
-                                 command=lambda: master.switch_frame())
+                                 command=lambda: master.switch_frame(PageFive))
         back_button = tk.Button(self, text='Назад',font =("Ariel", int(12.0)),bg = "red",foreground="white",bd= 4,width = 8,
                                  command=lambda: master.switch_frame(PageThree))
         menu_button = tk.Button(self,text='Вернуться в меню',font =("Ariel", int(12.0)),bg = "red",foreground="white",bd= 4,width = 15,
@@ -88,7 +97,65 @@ class PageFour(tk.Frame):
         page_4_label.pack(side="top", fill="x", pady=10)
         start_button.pack()
         back_button.pack()
-        menu_button.pack()              
+        menu_button.pack()
+        
+        
+# Справочник 
+class PageFive(tk.Frame):
+    def __init__(self,master):
+        tk.Frame.__init__(self, master)
+         
+        page_5_label = tk.Label(self, text="Past Simple",font=("Comic Sans MS", int(42.0)))
+        start_button = tk.Button(self, text="Далее",font =("Ariel", int(12.0)),bg = "red",foreground="white",bd= 4,width = 8,
+                                 command=lambda: master.switch_frame(PageSix))
+        back_button = tk.Button(self, text='Назад',font =("Ariel", int(12.0)),bg = "red",foreground="white",bd= 4,width = 8,
+                                 command=lambda: master.switch_frame(PageFour))
+        menu_button = tk.Button(self,text='Вернуться в меню',font =("Ariel", int(12.0)),bg = "red",foreground="white",bd= 4,width = 15,
+                                command=lambda: master.switch_frame(PageOne))
+        page_5_label.pack(side="top", fill="x", pady=10)
+        start_button.pack()
+        back_button.pack()
+        menu_button.pack()
+
+# Справочник 
+class PageSix(tk.Frame):
+    def __init__(self,master):
+        tk.Frame.__init__(self, master)
+         
+        page_6_label = tk.Label(self, text="Past Continuous",font=("Comic Sans MS", int(42.0)))
+        start_button = tk.Button(self, text="Далее",font =("Ariel", int(12.0)),bg = "red",foreground="white",bd= 4,width = 8,
+                                 command=lambda: master.switch_frame(PageSeven))
+        back_button = tk.Button(self, text='Назад',font =("Ariel", int(12.0)),bg = "red",foreground="white",bd= 4,width = 8,
+                                 command=lambda: master.switch_frame(PageFour))
+        menu_button = tk.Button(self,text='Вернуться в меню',font =("Ariel", int(12.0)),bg = "red",foreground="white",bd= 4,width = 15,
+                                command=lambda: master.switch_frame(PageOne))
+        page_6_label.pack(side="top", fill="x", pady=10)
+        start_button.pack()
+        back_button.pack()
+        menu_button.pack()
+
+# Справочник 
+class PageSeven(tk.Frame):
+    def __init__(self,master):
+        tk.Frame.__init__(self, master)
+        
+        page_7_label = tk.Label(self, text="Past Perfect",font=("Comic Sans MS", int(42.0)))
+        back_button = tk.Button(self, text='Назад',font =("Ariel", int(12.0)),bg = "red",foreground="white",bd= 4,width = 8,
+                                 command=lambda: master.switch_frame(PageFour))
+        menu_button = tk.Button(self,text='Вернуться в меню',font =("Ariel", int(12.0)),bg = "red",foreground="white",bd= 4,width = 15,
+                                command=lambda: master.switch_frame(PageOne))
+        page_7_label.pack(side="top", fill="x", pady=10)
+        back_button.pack()
+        menu_button.pack()
+
+# Test
+class PageEight(tk.Frame):
+    
+
+    def __init__(self,master):
+        tk.Frame.__init__(self, master)
+        page_8_label = tk.Label(self, text="Test",font=("Comic Sans MS", int(36.0)))
+        page_8_label.pack(side="top", fill="x", pady=10)
 
 if __name__ == "__main__":
     app = SampleApp()
